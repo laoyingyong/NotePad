@@ -1,5 +1,6 @@
 package com.example.databasetest.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -27,6 +28,16 @@ public class ShowActivity extends BaseActivity
         setContentView(R.layout.activity_show);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("日记详情");
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent=new Intent(v.getContext(),ViewActivity.class);
+                startActivity(intent);
+            }
+        });
         timeTv=findViewById(R.id.timeTv);
         titleEt=findViewById(R.id.titleEt);
         bodyEt=findViewById(R.id.bodyEt);

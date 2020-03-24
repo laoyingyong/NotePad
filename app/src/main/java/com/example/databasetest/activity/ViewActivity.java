@@ -37,6 +37,16 @@ public class ViewActivity extends BaseActivity
 
         Toolbar toolbar=findViewById(R.id.toolbar);
         toolbar.setTitle("日记一览");
+        toolbar.setNavigationIcon(R.drawable.back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent=new Intent(v.getContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
         initNotes();//初始化日记
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
